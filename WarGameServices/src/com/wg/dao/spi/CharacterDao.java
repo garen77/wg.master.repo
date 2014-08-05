@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,8 @@ public class CharacterDao implements IGenericDao<com.wg.model.Character> {
 	@Override
 	public List<com.wg.model.Character> findAll() {
 		Criteria queryCriteria = sessionFactory.getCurrentSession().createCriteria(com.wg.model.Character.class);
-		return queryCriteria.list();
+		List<com.wg.model.Character> res = queryCriteria.list();
+		return res;
 	}
 
 }

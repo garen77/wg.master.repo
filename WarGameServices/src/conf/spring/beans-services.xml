@@ -37,6 +37,7 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
+				<value>com.wg.model.Character</value>
 			</list>
 		</property>
 		<property name="packagesToScan" value="com.wg.model" />
