@@ -3,6 +3,7 @@
 	<name>WarGame</name>
 	<comment></comment>
 	<projects>
+		<project>WarGameServices</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

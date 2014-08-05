@@ -12,5 +12,8 @@ public class ServicesFactory extends Factory {
 		return PATH;
 	}
 
-
+	public Object getService(String beanId)
+	{
+		return super.getBean(beanId);
+	}
 }
