@@ -5,21 +5,34 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
-	xmlns:wg="http://www.wg.com/jsf">
+	xmlns:wgm="http://www.wg.com/jsf">
 
 	<ice:outputHtml>
+		<wgm:header title="#{title}">
+			<c:if test="#{!wgm:isNullOrEmpty(customCSS)}">
+				<style type="text/css">
+					@IMPORT url("#{customCSS}");
+				</style>
+			</c:if>
+		</wgm:header>
 		<ice:outputBody>
 			<ice:panelGrid columns="1">
-				<h1>Header</h1>
-				<ice:panelGrid columns="1">	
-					<ice:form id="pageForm">				
+				<div align="center">
+					<ui:insert name="header">
+						<ui:include src="/pages/commons/header.xhtml" />
+					</ui:insert>
+				</div>
+				<ice:panelGrid columns="1">
+					<ice:form id="pageForm">
 						<ui:insert />
 					</ice:form>
-				</ice:panelGrid>		
+				</ice:panelGrid>
 				<div align="center">
-					<H2>Footer</H2>
+					<ui:insert name="footer">
+						<ui:include src="/pages/commons/footer.xhtml" />
+					</ui:insert>
 				</div>
-			</ice:panelGrid>	
-	</ice:outputBody>
+			</ice:panelGrid>
+		</ice:outputBody>
 	</ice:outputHtml>
 </ui:composition>

@@ -11,6 +11,14 @@
 			com.icesoft.faces.facelets.D2DFaceletViewHandler
 		</view-handler>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<resource-bundle>
+			<base-name>com.wg.web.resources.GenericWebMessages</base-name>
+			<var>msg</var>
+		</resource-bundle>
 	</application>
+	<component>
+		<component-type>com.wg.tags.Header</component-type>
+		<component-class>com.wg.tags.Header</component-class>
+	</component>
 
 </faces-config>

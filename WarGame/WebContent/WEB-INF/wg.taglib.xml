@@ -6,5 +6,29 @@
 		<tag-name>view</tag-name>
 		<source>./tags/commons/view.xhtml</source>
 	</tag>
+	<tag>
+		<tag-name>header</tag-name>
+		<component>	
+			<component-type>com.wg.tags.Header</component-type>
+			<renderer-type>com.wg.tags.renderers.HTMLHeaderRenderer</renderer-type>
+		</component>
+	</tag>
+	
+	<!-- functions -->
+	<function>
+		<function-name>isNullOrEmpty</function-name>
+		<function-class>com.wg.tags.functions.PageFunctions</function-class>
+		<function-signature>boolean isNullOrEmpty(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>ifEmptyTrue</function-name>
+		<function-class>com.wg.tags.functions.PageFunctions</function-class>
+		<function-signature>boolean ifEmptyTrue(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<function-name>concat</function-name>
+		<function-class>com.wg.tags.functions.PageFunctions</function-class>
+		<function-signature>String concat(java.lang.String, java.lang.String)</function-signature>
+	</function>
 
 </facelet-taglib>
