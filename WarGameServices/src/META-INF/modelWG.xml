@@ -1,0 +1,18 @@
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+	version="1.0">
+
+
+
+	<entity class="bank.dto.AccountDTO"></entity>
+	<entity class="bank.dto.BalanceDTO"></entity>
+	<entity class="bank.dto.ClientDTO"></entity>
+	<entity class="bank.dto.EmployeeDTO"></entity>
+	<entity class="bank.dto.FunctionDTO"></entity>
+	<entity class="bank.dto.FunctionPrivilegeDTO"></entity>
+	<entity class="bank.dto.MovementDTO"></entity>
+	<entity class="bank.dto.SepaCreditDTO"></entity>
+	
+
+</entity-mappings>

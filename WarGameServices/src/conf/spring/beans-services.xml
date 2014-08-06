@@ -35,12 +35,7 @@
 				<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->				
 			</props>
 		</property>
-		<property name="annotatedClasses">
-			<list>
-				<value>com.wg.model.Character</value>
-			</list>
-		</property>
-		<property name="packagesToScan" value="com.wg.model" />
+		<property name="packagesToScan" value="com.wg.model"/>
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager"
