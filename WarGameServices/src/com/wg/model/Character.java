@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Character")
+@Table(name="\"Character\"")
 public class Character extends BaseModel{
 
 	@Id
