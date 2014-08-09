@@ -26,6 +26,9 @@ public class WarGameLoaderBean extends BaseBean{
 	
 	private String selectedCharacter;
 	
+	private String userName;
+	
+	
 	
 	public LoaderService getLoaderService()
 	{
@@ -39,25 +42,14 @@ public class WarGameLoaderBean extends BaseBean{
 	@Override
 	public void initActivity() {
 		// TODO Auto-generated method stub
-		if(chars == null)
-		{
-			chars = new ArrayList<SelectItem>();
-
-			List<com.wg.model.Character> chs = (List<Character>) getLoaderService().loadAllCharacter();
-			if(chs != null && chs.size()>0)
-			{
-				for(com.wg.model.Character itemCharOb : chs)
-				{
-					if(itemCharOb != null)
-					{
-						chars.add(new SelectItem(itemCharOb.getId(),itemCharOb.getDes()));
-					}
-				}
-			}
-		}
 			
 	}
 
+	public String login()
+	{
+		return "";
+	}
+	
 	public String start()
 	{
 		if(chars == null)
@@ -93,6 +85,14 @@ public class WarGameLoaderBean extends BaseBean{
 
 	public void setSelectedCharacter(String selectedCharacter) {
 		this.selectedCharacter = selectedCharacter;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }

@@ -4,7 +4,7 @@
 	<namespace>http://www.wg.com/jsf</namespace>
 	<tag>	
 		<tag-name>decorate</tag-name>
-		<handler-class>com.wg.ui.jsf.BankDecorate</handler-class>
+		<handler-class>com.wg.ui.jsf.Decorate</handler-class>
 	</tag>
 	<tag>
 		<tag-name>view</tag-name>
