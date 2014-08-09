@@ -22,7 +22,7 @@ public class LoaderService implements IService {
 	@Override
 	public List<? extends BaseModel> loadAllCharacter() {
 		// TODO Auto-generated method stub
-		return characterDao.findAll();
+		return characterDao.findAll(new com.wg.model.Character());
 	}
 	
 	

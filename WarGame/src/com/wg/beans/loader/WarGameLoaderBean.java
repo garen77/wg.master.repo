@@ -52,6 +52,10 @@ public class WarGameLoaderBean extends BaseBean{
 	
 	public String start()
 	{
+		return "";
+	}
+	
+	public List<SelectItem> getChars() {
 		if(chars == null)
 		{
 			chars = new ArrayList<SelectItem>();
@@ -68,10 +72,6 @@ public class WarGameLoaderBean extends BaseBean{
 				}
 			}
 		}
-		return "";
-	}
-	
-	public List<SelectItem> getChars() {
 		return chars;
 	}
 
