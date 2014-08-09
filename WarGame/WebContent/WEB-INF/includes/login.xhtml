@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<div align="center">
+		<ice:panelGrid cellSpacing="0" columnClasses="col1, col2"
+			rowClasses="row1, row2">
+			<ice:outputText value="#{msg.userName}"></ice:outputText>
+			<ice:inputText value="#{callerBean.userName}"></ice:inputText>
+		</ice:panelGrid>
+		<ice:commandButton id="parepper" type="submit"
+			action="#{callerBean.login}" value="#{msg.login}" />
+	</div>
+
+</ui:composition>
