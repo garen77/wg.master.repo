@@ -19,8 +19,8 @@
     	</navigation-case>
     </navigation-rule>
     <navigation-rule>
-    	<display-name>failureLogin.xhtml</display-name>
-    	<from-view-id>/failureLogin.xhtml</from-view-id>
+    	<display-name>pagesfailureLogin.xhtml</display-name>
+    	<from-view-id>/pages/failureLogin.xhtml</from-view-id>
     	<navigation-case>
     		<from-outcome>back</from-outcome>
     		<to-view-id>/pages/start.xhtml</to-view-id>
