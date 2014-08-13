@@ -6,6 +6,27 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
     version="1.2">
 
+    <navigation-rule>
+    	<display-name>pages/start.xhtml</display-name>
+    	<from-view-id>/pages/start.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>successful</from-outcome>
+    		<to-view-id>/index.xhtml</to-view-id>
+    	</navigation-case>
+    	<navigation-case>
+    		<from-outcome>failure</from-outcome>
+    		<to-view-id>/pages/failureLogin.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>failureLogin.xhtml</display-name>
+    	<from-view-id>/failureLogin.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>back</from-outcome>
+    		<to-view-id>/pages/start.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+
 	<application>
 		<view-handler>
 			com.icesoft.faces.facelets.D2DFaceletViewHandler
