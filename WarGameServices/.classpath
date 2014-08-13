@@ -55,5 +55,6 @@
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/javassist/javassist-3.9.0.GA.jar"/>
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/cglib2/cglib-nodep-2.1_3.jar"/>
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/postgres_jdbc/postgresql-9.1-903.jdbc4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WarGameDTO"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
