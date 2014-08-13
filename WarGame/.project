@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>WarGameServices</project>
+		<project>WarGameDTO</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

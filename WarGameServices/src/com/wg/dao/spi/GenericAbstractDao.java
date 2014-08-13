@@ -1,5 +1,6 @@
 package com.wg.dao.spi;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class GenericAbstractDao<T> {
+public abstract class GenericAbstractDao<T> implements Serializable{
 	
 	@Autowired
 	protected SessionFactory sessionFactory;

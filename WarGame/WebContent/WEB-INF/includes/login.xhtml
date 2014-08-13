@@ -10,6 +10,8 @@
 			rowClasses="row1, row2">
 			<ice:outputText value="#{msg.userName}"></ice:outputText>
 			<ice:inputText value="#{callerBean.userName}"></ice:inputText>
+			<ice:outputText value="#{msg.password}"></ice:outputText>
+			<ice:inputText value="#{callerBean.password}"></ice:inputText>
 		</ice:panelGrid>
 		<ice:commandButton id="parepper" type="submit"
 			action="#{callerBean.login}" value="#{msg.login}" />

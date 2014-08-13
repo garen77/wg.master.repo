@@ -24,6 +24,7 @@ public class LoaderService implements ILoaderServices,ILoginServices {
 	@Autowired
 	private CharacterDao characterDao;
 
+	@Autowired
 	private UserDao userDao;
 	
 	@Override
