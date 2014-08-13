@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wg.assembler.UserAssembler;
 import com.wg.dao.spi.CharacterDao;
+import com.wg.dao.spi.UserDao;
 import com.wg.dto.UserDTO;
 import com.wg.model.BaseModel;
+import com.wg.model.User;
 import com.wg.services.api.ILoaderServices;
 import com.wg.services.api.ILoginServices;
 
@@ -21,6 +24,8 @@ public class LoaderService implements ILoaderServices,ILoginServices {
 	@Autowired
 	private CharacterDao characterDao;
 
+	private UserDao userDao;
+	
 	@Override
 	public List<? extends BaseModel> loadAllCharacter() {
 		// TODO Auto-generated method stub
@@ -29,8 +34,11 @@ public class LoaderService implements ILoaderServices,ILoginServices {
 
 	@Override
 	public boolean login(UserDTO userDto) {
-		
-		return false;
+		UserAssembler assembler = new UserAssembler();
+		User user = new User();
+		assembler.fromDto(user, userDto);
+		List<com.wg.model.User> lst = userDao.findAll(user);
+		return lst != null && lst.size() ==1;
 	}
 	
 	

@@ -27,6 +27,9 @@ public class User extends BaseModel {
 	@Column(name="password")
 	private String password;
 
+	@Column(name="nick")
+	private String nick;
+	
 	public String getIdUser() {
 		return idUser;
 	}
@@ -45,6 +48,14 @@ public class User extends BaseModel {
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 
 	public void setPassword(String password) {
