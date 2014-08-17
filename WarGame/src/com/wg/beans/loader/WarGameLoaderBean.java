@@ -8,6 +8,9 @@ import javax.faces.model.SelectItem;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import com.wg.beans.BaseBean;
+import com.wg.beans.state.LoginState;
+import com.wg.beans.state.RegisterState;
 import com.wg.beans.state.ViewState;
 import com.wg.dto.UserDTO;
 import com.wg.model.Character;
@@ -17,6 +20,11 @@ import com.wg.services.spi.LoaderService;
 @Service(value = WarGameLoaderBean.BEAN_NAME)
 @Scope(value = "session")
 public class WarGameLoaderBean extends BaseBean{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6912038048020271313L;
 
 	public static final String BEAN_NAME= "warGameLoaderBean";
 	
@@ -45,7 +53,11 @@ public class WarGameLoaderBean extends BaseBean{
 	
 	@Override
 	public void initActivity() {
-		// TODO Auto-generated method stub
+		
+		if(viewState == null)
+		{
+			viewState = new LoginState();
+		}
 			
 	}
 
@@ -66,6 +78,7 @@ public class WarGameLoaderBean extends BaseBean{
 	
 	public String register()
 	{
+		this.viewState = new RegisterState();
 		return "";
 	}
 	

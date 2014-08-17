@@ -1,4 +1,4 @@
-package com.wg.beans.loader;
+package com.wg.beans;
 
 import java.io.Serializable;
 

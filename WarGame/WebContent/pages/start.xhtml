@@ -8,6 +8,6 @@
 	backingBean="#{warGameLoaderBean}">
 		
 		<c:set var="callerBean" value="#{warGameLoaderBean}" />
-		<wgm:decorate template="/includes/#{warGameLoaderBean.viewToShow}.xhtml" /> 
+		<wgm:decorate template="/includes/#{warGameLoaderBean.viewState.view}.xhtml" /> 
 
 </wgm:view>
