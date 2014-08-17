@@ -15,6 +15,9 @@
 			<ice:outputText value="#{msg.password}"></ice:outputText>
 			<ice:inputText value="#{callerBean.password}"></ice:inputText>
 
+			<ice:outputText id="mailText" value="#{msg.mail}"></ice:outputText>
+			<ice:inputText id="mail" value="#{callerBean.mail}"></ice:inputText>
+
 			<ice:outputText value="#{msg.registerText}"></ice:outputText>
 			<ice:commandButton id="register" type="submit"
 			action="#{callerBean.register}" value="#{msg.register}" />

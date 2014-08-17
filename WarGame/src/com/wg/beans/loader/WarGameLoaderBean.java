@@ -1,21 +1,10 @@
 package com.wg.beans.loader;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.faces.model.SelectItem;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.wg.beans.BaseBean;
 import com.wg.beans.state.LoginState;
-import com.wg.beans.state.RegisterState;
-import com.wg.beans.state.ViewState;
-import com.wg.dto.UserDTO;
-import com.wg.model.Character;
-import com.wg.services.factory.ServicesFactory;
-import com.wg.services.spi.LoaderService;
 
 @Service(value = WarGameLoaderBean.BEAN_NAME)
 @Scope(value = "session")

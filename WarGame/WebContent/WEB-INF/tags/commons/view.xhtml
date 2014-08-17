@@ -17,6 +17,12 @@
 			<style type="text/css">
 				@IMPORT url("/skins/css/baseCss.css");
 			</style>
+			<c:if test="#{!wgm:isNullOrEmpty(customJS)}">
+				<script type="text/javascript" src="/WarGame/skins/jQueryLib/jquery-1.7.1.js">
+				</script>
+				<script type="text/javascript" src="#{customJS}">
+				</script>
+			</c:if>	
 		</wgm:header>
 		<ice:outputBody>
 			<div align="center">

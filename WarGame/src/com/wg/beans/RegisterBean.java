@@ -1,5 +1,8 @@
 package com.wg.beans;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +21,11 @@ public class RegisterBean extends BaseBean {
 	private String userName;
 	
 	private String password;
+	
+	private String mail;
 
 	@Override
 	public void initActivity() {
-		
 		viewState = new RegisterState();
 
 	}
@@ -46,6 +50,14 @@ public class RegisterBean extends BaseBean {
 	{
 		getWarGameLoaderBean().viewState = new RegisterState();
 		return "";
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.wg.beans;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -64,6 +67,10 @@ public class LoginBean extends BaseBean {
 
 	public String register()
 	{
+		FacesContext fc = FacesContext.getCurrentInstance();
+		HttpServletRequest req=(HttpServletRequest)fc.getExternalContext().getRequest();
+		req.setAttribute("customJS","/WarGame/skins/js/register.js");
+
 		getWarGameLoaderBean().viewState = new RegisterState();
 		return "";
 	}
