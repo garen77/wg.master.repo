@@ -1,6 +1,8 @@
 package com.wg.beans.state;
 
-public interface ViewState {
+import java.io.Serializable;
+
+public interface ViewState extends Serializable{
 
 	public String getView();
 	

@@ -1,16 +1,73 @@
 package com.wg.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+
+import com.wg.beans.loader.WarGameLoaderBean;
+import com.wg.beans.state.LoginState;
+import com.wg.beans.state.RegisterState;
+import com.wg.dto.UserDTO;
+
+@Service(value = LoginBean.BEAN_NAME)
+@Scope(value = "request")
 public class LoginBean extends BaseBean {
 
+	@Autowired
+	private WarGameLoaderBean warGameLoaderBean;
+	
+	public static final String BEAN_NAME= "loginBean";
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1864120842137006757L;
 
+	private String userName;
+	
+	private String password;
+
 	@Override
 	public void initActivity() {
-		// TODO Auto-generated method stub
+		
+		warGameLoaderBean.viewState = new LoginState();
 
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String login()
+	{
+		String res = "failure";
+		boolean loginOk = false;
+		UserDTO userDto = new UserDTO();
+		userDto.setUserName(userName);
+		userDto.setPassword(password);
+		loginOk = getLoaderService().login(userDto);
+		if(loginOk)
+		{
+			res = "successful";
+		}
+		return res;
+	}
+
+	public String register()
+	{
+		warGameLoaderBean.viewState = new RegisterState();
+		return "";
 	}
 
 }
