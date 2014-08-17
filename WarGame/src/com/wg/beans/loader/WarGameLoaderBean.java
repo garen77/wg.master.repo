@@ -8,6 +8,7 @@ import javax.faces.model.SelectItem;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import com.wg.beans.state.ViewState;
 import com.wg.dto.UserDTO;
 import com.wg.model.Character;
 import com.wg.services.factory.ServicesFactory;
@@ -30,6 +31,8 @@ public class WarGameLoaderBean extends BaseBean{
 	private String userName;
 	
 	private String password;
+	
+	private ViewState viewState;
 	
 	public LoaderService getLoaderService()
 	{
@@ -59,6 +62,11 @@ public class WarGameLoaderBean extends BaseBean{
 			res = "successful";
 		}
 		return res;
+	}
+	
+	public String register()
+	{
+		return "";
 	}
 	
 	public String back()
@@ -117,6 +125,14 @@ public class WarGameLoaderBean extends BaseBean{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public ViewState getViewState() {
+		return viewState;
+	}
+
+	public void setViewState(ViewState viewState) {
+		this.viewState = viewState;
 	}
 
 }
