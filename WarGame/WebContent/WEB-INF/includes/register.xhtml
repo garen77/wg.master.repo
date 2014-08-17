@@ -15,11 +15,11 @@
 			<ice:outputText value="#{msg.password}"></ice:outputText>
 			<ice:inputText value="#{callerBean.password}"></ice:inputText>
 
-			<ice:outputText id="mailText" value="#{msg.mail}"></ice:outputText>
+			<ice:outputText id="mailText" forceId="true" value="#{msg.mail}"></ice:outputText>
 			<ice:inputText id="mail" value="#{callerBean.mail}"></ice:inputText>
 
 			<ice:outputText value="#{msg.registerText}"></ice:outputText>
-			<ice:commandButton id="register" type="submit"
+			<ice:commandButton id="register" type="submit" forceId="false"
 			action="#{callerBean.register}" value="#{msg.register}" />
 		</ice:panelGrid>
 	</div>

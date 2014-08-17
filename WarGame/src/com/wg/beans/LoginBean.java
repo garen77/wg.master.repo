@@ -67,10 +67,6 @@ public class LoginBean extends BaseBean {
 
 	public String register()
 	{
-		FacesContext fc = FacesContext.getCurrentInstance();
-		HttpServletRequest req=(HttpServletRequest)fc.getExternalContext().getRequest();
-		req.setAttribute("customJS","/WarGame/skins/js/register.js");
-
 		getWarGameLoaderBean().viewState = new RegisterState();
 		return "";
 	}

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import com.icesoft.faces.context.effects.JavascriptContext;
 import com.wg.beans.state.RegisterState;
 
 @Service(value = RegisterBean.BEAN_NAME)
@@ -26,6 +27,10 @@ public class RegisterBean extends BaseBean {
 
 	@Override
 	public void initActivity() {
+		
+		FacesContext fc = FacesContext.getCurrentInstance();
+		JavascriptContext.includeLib("/skins/js/register.js", fc);
+
 		viewState = new RegisterState();
 
 	}
