@@ -5,15 +5,22 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.wg.beans.loader.WarGameLoaderBean;
 import com.wg.beans.state.ViewState;
 import com.wg.services.factory.ServicesFactory;
 import com.wg.services.spi.LoaderService;
+import com.wg.spring.beans.SpringBeans;
 
 public abstract class BaseBean implements Serializable{
 
 	private static final ServicesFactory sf = new ServicesFactory();
 
 	private LoaderService loaderService;
+
+	
+	private WarGameLoaderBean warGameLoaderBean;
 
 	protected ViewState viewState;
 
@@ -25,7 +32,16 @@ public abstract class BaseBean implements Serializable{
 		}
 		return loaderService;
 	}
-
+	
+	public WarGameLoaderBean getWarGameLoaderBean()
+	{
+		if(warGameLoaderBean == null)
+		{
+			warGameLoaderBean = (WarGameLoaderBean)SpringBeans.getBean(WarGameLoaderBean.BEAN_NAME);
+		}
+		return warGameLoaderBean;
+	}
+	
 	@PostConstruct
 	public void init()
 	{

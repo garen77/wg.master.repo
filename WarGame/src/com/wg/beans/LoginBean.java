@@ -13,8 +13,6 @@ import com.wg.dto.UserDTO;
 @Scope(value = "request")
 public class LoginBean extends BaseBean {
 
-	@Autowired
-	private WarGameLoaderBean warGameLoaderBean;
 	
 	public static final String BEAN_NAME= "loginBean";
 	/**
@@ -29,7 +27,7 @@ public class LoginBean extends BaseBean {
 	@Override
 	public void initActivity() {
 		
-		warGameLoaderBean.viewState = new LoginState();
+		getWarGameLoaderBean().viewState = new LoginState();
 
 	}
 
@@ -66,7 +64,7 @@ public class LoginBean extends BaseBean {
 
 	public String register()
 	{
-		warGameLoaderBean.viewState = new RegisterState();
+		getWarGameLoaderBean().viewState = new RegisterState();
 		return "";
 	}
 

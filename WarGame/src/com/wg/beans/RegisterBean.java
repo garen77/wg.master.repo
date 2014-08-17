@@ -42,5 +42,10 @@ public class RegisterBean extends BaseBean {
 		this.password = password;
 	}
 
+	public String register()
+	{
+		getWarGameLoaderBean().viewState = new RegisterState();
+		return "";
+	}
 
 }
