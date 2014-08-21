@@ -4,9 +4,11 @@ package com.wg.beans;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.icesoft.faces.context.effects.JavascriptContext;
 import com.wg.beans.loader.WarGameLoaderBean;
 import com.wg.beans.state.ViewState;
 import com.wg.services.factory.ServicesFactory;
@@ -45,6 +47,8 @@ public abstract class BaseBean implements Serializable{
 	@PostConstruct
 	public void init()
 	{
+		FacesContext fc = FacesContext.getCurrentInstance();
+		JavascriptContext.includeLib("/skins/jQueryLib/jquery-1.7.1.js", fc);
 		initActivity();
 	}
 	

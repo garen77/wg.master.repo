@@ -6,36 +6,35 @@
 	xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
 	xmlns:wgm="http://www.wg.com/jsf">
-
-	<ice:outputHtml>
-		<wgm:header title="#{title}">
-			<c:if test="#{!wgm:isNullOrEmpty(customCSS)}">
+	<f:view>
+		<ice:outputHtml>
+			<wgm:header title="#{title}">
+				<c:if test="#{!wgm:isNullOrEmpty(customCSS)}">
+					<style type="text/css">
+						@IMPORT url("#{customCSS}");
+					</style>
+				</c:if>
 				<style type="text/css">
-					@IMPORT url("#{customCSS}");
+					@IMPORT url("/WarGame/skins/css/baseCss.css");
 				</style>
-			</c:if>
-			<style type="text/css">
-				@IMPORT url("/skins/css/baseCss.css");
-			</style>
-			<script type="text/javascript" src="/WarGame/skins/jQueryLib/jquery-1.7.1.js">
-			</script>
-		</wgm:header>
-		<ice:outputBody>
-			<div align="center">
-				<ice:panelGrid columns="1" >
-					<ui:insert name="header">
-						<ui:include src="/pages/commons/header.xhtml" />
-					</ui:insert>
-					<ice:panelGrid columns="1">	
-						<ice:form id="pageForm">				
-							<ui:insert />
-						</ice:form>
-					</ice:panelGrid>						
-					<ui:insert name="footer">
-						<ui:include src="/pages/commons/footer.xhtml" />
-					</ui:insert>
-				</ice:panelGrid>	
-			</div>
-	</ice:outputBody>
-	</ice:outputHtml>
+			</wgm:header>
+			<ice:outputBody>
+				<div align="center">
+					<ice:panelGrid columns="1" >
+						<ui:insert name="header">
+							<ui:include src="/pages/commons/header.xhtml" />
+						</ui:insert>
+						<ice:panelGrid columns="1">	
+							<ice:form id="pageForm">				
+								<ui:insert />
+							</ice:form>
+						</ice:panelGrid>						
+						<ui:insert name="footer">
+							<ui:include src="/pages/commons/footer.xhtml" />
+						</ui:insert>
+					</ice:panelGrid>	
+				</div>
+		</ice:outputBody>
+		</ice:outputHtml>
+	</f:view>
 </ui:composition>

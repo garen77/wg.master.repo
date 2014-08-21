@@ -52,7 +52,12 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/beans-web.xml</param-value>
   </context-param>
-  
+  <context-param>
+    <description>Monitor Runner Interval parameter</description>
+    <param-name>monitorRunnerInterval</param-name>
+    <param-value>1000</param-value>
+  </context-param>
+
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
