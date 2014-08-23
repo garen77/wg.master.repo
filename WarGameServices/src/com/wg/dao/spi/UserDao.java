@@ -12,5 +12,5 @@ public class UserDao extends GenericAbstractDao<User> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }

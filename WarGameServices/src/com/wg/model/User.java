@@ -19,7 +19,7 @@ public class User extends BaseModel {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,
 	generator="User_idUser_seq")
 	@Column(name = "\"idUser\"", updatable=false)
-	private String idUser;
+	private long idUser;
 
 	@Column(name="mail")
 	private String mail;
@@ -30,11 +30,7 @@ public class User extends BaseModel {
 	@Column(name="nick")
 	private String nick;
 	
-	public String getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(String idUser) {
+	public void setIdUser(long idUser) {
 		this.idUser = idUser;
 	}
 

@@ -2,6 +2,8 @@ package com.wg.beans;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
@@ -17,7 +19,7 @@ import com.wg.spring.beans.SpringBeans;
 
 public abstract class BaseBean implements Serializable{
 
-	private static final ServicesFactory sf = new ServicesFactory();
+	protected static final ServicesFactory sf = new ServicesFactory();
 
 	private LoaderService loaderService;
 
@@ -26,6 +28,8 @@ public abstract class BaseBean implements Serializable{
 
 	protected ViewState viewState;
 
+	private List<String> errorMessages = new ArrayList<String>();
+	
 	public LoaderService getLoaderService()
 	{
 		if(loaderService == null)
@@ -62,4 +66,16 @@ public abstract class BaseBean implements Serializable{
 		this.viewState = viewState;
 	}
 
+	public String back()
+	{
+		return "back";
+	}
+
+	public List<String> getErrorMessages() {
+		return errorMessages;
+	}
+
+	public void setErrorMessages(List<String> errorMessages) {
+		this.errorMessages = errorMessages;
+	}
 }

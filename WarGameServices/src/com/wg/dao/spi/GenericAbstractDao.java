@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public abstract class GenericAbstractDao<T> implements Serializable{
 		List<T> res = queryCriteria.list();
 		return res;
 
+	}
+	
+	public void save(T model) throws HibernateException
+	{		
+		sessionFactory.getCurrentSession().save(model);
 	}
 
 }

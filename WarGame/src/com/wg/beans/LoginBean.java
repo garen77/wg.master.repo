@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.wg.beans.loader.WarGameLoaderBean;
 import com.wg.beans.state.LoginState;
-import com.wg.beans.state.RegisterState;
+import com.wg.beans.state.register.RegisterState;
 import com.wg.dto.UserDTO;
 
 @Service(value = LoginBean.BEAN_NAME)
@@ -68,7 +68,7 @@ public class LoginBean extends BaseBean {
 	public String register()
 	{
 		getWarGameLoaderBean().viewState = new RegisterState();
-		return "";
+		return getWarGameLoaderBean().viewState.getView();
 	}
 
 }

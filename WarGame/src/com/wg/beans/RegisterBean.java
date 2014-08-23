@@ -7,7 +7,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.icesoft.faces.context.effects.JavascriptContext;
-import com.wg.beans.state.RegisterState;
+import com.wg.beans.state.LoginState;
+import com.wg.beans.state.register.RegisterFailureState;
+import com.wg.beans.state.register.RegisterOkState;
+import com.wg.beans.state.register.RegisterState;
+import com.wg.dto.UserDTO;
+import com.wg.result.RegisterResult;
+import com.wg.services.api.IRegisterServices;
 
 @Service(value = RegisterBean.BEAN_NAME)
 @Scope(value = "request")
@@ -25,6 +31,7 @@ public class RegisterBean extends BaseBean {
 	
 	private String mail;
 
+	
 	@Override
 	public void initActivity() {
 		
@@ -53,9 +60,39 @@ public class RegisterBean extends BaseBean {
 
 	public String register()
 	{
-		getWarGameLoaderBean().viewState = new RegisterState();
+		IRegisterServices registerServices = (IRegisterServices)sf.getService(IRegisterServices.SERVICE_NAME);
+		if(registerServices != null)
+		{
+			UserDTO userDto = new UserDTO();
+			userDto.setUserName(userName);
+			userDto.setMail(mail);
+			userDto.setPassword(password);
+			RegisterResult result = null;
+			try
+			{
+				result = registerServices.register(userDto);
+			}
+			catch(Exception ex)
+			{
+				result = new RegisterResult();
+				result.setMessage(ex.getMessage());
+			}
+			if(result != null && result.getMessage() == null)
+			{
+				setViewState(new RegisterOkState());
+			}
+			else if(result == null || result.getMessage() != null)
+			{
+				setViewState(new RegisterFailureState());
+				if(result != null && result.getMessage() != null)
+				{
+					getErrorMessages().add(result.getMessage());
+				}
+			}
+		}
 		return "";
 	}
+
 
 	public String getMail() {
 		return mail;
@@ -64,5 +101,7 @@ public class RegisterBean extends BaseBean {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+	
 
 }

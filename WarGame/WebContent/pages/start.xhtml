@@ -8,6 +8,22 @@
 	backingBean="#{warGameLoaderBean}">
 		
 		<c:set var="callerBean" value="#{loginBean}" />
-		<wgm:decorate template="/includes/#{warGameLoaderBean.viewState.view}.xhtml" /> 
+	<div align="center">
+		<ice:outputText value="#{msg.enter}"/>
+		<ice:panelGrid cellSpacing="0" columns="2" columnClasses="col1, col2">
+			<ice:outputText value="#{msg.userName}"></ice:outputText>
+			<ice:inputText value="#{callerBean.userName}"></ice:inputText>
+			
+			<ice:outputText value="#{msg.password}"></ice:outputText>
+			<ice:inputText value="#{callerBean.password}"></ice:inputText>
+		</ice:panelGrid>
+		<ice:commandButton id="login" type="submit"
+			action="#{callerBean.login}" value="#{msg.login}" />
+		<ice:panelGrid cellSpacing="0" columns="2" columnClasses="col1, col2">
+			<ice:outputText value="#{msg.registerText}"></ice:outputText>
+			<ice:commandButton id="register" type="submit"
+			action="#{callerBean.register}" value="#{msg.register}" />
+		</ice:panelGrid>
+	</div>
 
 </wgm:view>
