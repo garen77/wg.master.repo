@@ -17,7 +17,7 @@ import com.wg.services.api.ILoginServices;
 
 @Service(value=LoaderService.SERVICE_NAME)
 @Transactional
-public class LoaderService implements ILoaderServices,ILoginServices {
+public class LoaderService extends GenericService implements ILoaderServices,ILoginServices {
 
 	public static final String SERVICE_NAME = "loaderService";
 

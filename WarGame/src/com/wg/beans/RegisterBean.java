@@ -75,18 +75,18 @@ public class RegisterBean extends BaseBean {
 			catch(Exception ex)
 			{
 				result = new RegisterResult();
-				result.setMessage(ex.getMessage());
+				result.getMessages().add(ex.getMessage());
 			}
-			if(result != null && result.getMessage() == null)
+			if(result != null && (result.getMessages() == null || result.getMessages().isEmpty()))
 			{
 				setViewState(new RegisterOkState());
 			}
-			else if(result == null || result.getMessage() != null)
+			else if(result == null || (result.getMessages() != null && !result.getMessages().isEmpty()))
 			{
 				setViewState(new RegisterFailureState());
-				if(result != null && result.getMessage() != null)
+				if(result != null && result.getMessages() != null && !result.getMessages().isEmpty())
 				{
-					getErrorMessages().add(result.getMessage());
+					getErrorMessages().addAll(result.getMessages());
 				}
 			}
 		}

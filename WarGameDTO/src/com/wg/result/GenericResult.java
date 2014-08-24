@@ -1,17 +1,25 @@
 package com.wg.result;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenericResult implements Serializable{
 
 	private String message;
 
-	public String getMessage() {
-		return message;
+	private List<String> messages;
+	
+	public List<String> getMessages() {
+		if(messages == null)
+		{
+			messages = new ArrayList<String>();
+		}
+		return messages;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessages(List<String> messages) {
+		this.messages = messages;
 	}
-	
+
 }

@@ -8,17 +8,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wg.assembler.UserAssembler;
+import com.wg.criteria.MailSenderCriteria;
 import com.wg.dao.spi.UserDao;
 import com.wg.dto.UserDTO;
 import com.wg.model.User;
+import com.wg.result.MailSenderResult;
 import com.wg.result.RegisterResult;
+import com.wg.services.api.IMailSenderServices;
 import com.wg.services.api.IRegisterServices;
+import com.wg.services.factory.ServicesFactory;
 
-@Service(value=RegisterServices.SERVICE_NAME)
+@Service(value=IRegisterServices.SERVICE_NAME)
 @Transactional
-public class RegisterServices implements IRegisterServices {
+public class RegisterServices extends GenericService implements IRegisterServices {
 
 	
+	protected static final ServicesFactory sf = new ServicesFactory();
 	
 	@Autowired
 	private UserDao userDao;
@@ -39,16 +44,26 @@ public class RegisterServices implements IRegisterServices {
 			}
 			catch(HibernateException he)
 			{
-				result.setMessage(he.getMessage());
+				result.getMessages().add(he.getMessage());
 			}
-			if(result.getMessage() == null)
+			// sending mail
+			MailSenderCriteria mailSenderCriteria = new MailSenderCriteria();
+			mailSenderCriteria.setFromAddr("pippo@pelo.it");
+			mailSenderCriteria.setToAddr(userDto.getMail());
+			IMailSenderServices mailSenderServices = (IMailSenderServices)sf.getBean(IMailSenderServices.SERVICE_NAME);
+			MailSenderResult mailSenderResult = mailSenderServices.sendMail(mailSenderCriteria);
+			
+			if((result.getMessages() == null || result.getMessages().isEmpty())
+					&&
+					(mailSenderResult == null || mailSenderResult.getMessages() == null
+					|| mailSenderResult.getMessages().isEmpty()))
 			{
 				result.setRegisterOperation(true);
 			}
 		}
 		else if(users != null && users.size()==1)
 		{
-			result.setMessage("User already registered");
+			result.getMessages().add("User already registered");
 		}
 		return result;
 	}
