@@ -1,0 +1,392 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.2
+-- Dumped by pg_dump version 9.1.2
+-- Started on 2014-08-24 22:28:35
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 169 (class 3079 OID 11639)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1904 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 161 (class 1259 OID 16513)
+-- Dependencies: 6
+-- Name: Character; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Character" (
+    id numeric(5,0) NOT NULL,
+    des text
+);
+
+
+ALTER TABLE public."Character" OWNER TO postgres;
+
+--
+-- TOC entry 162 (class 1259 OID 16519)
+-- Dependencies: 6
+-- Name: CharacterFeature; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "CharacterFeature" (
+    "idCharacter" numeric(5,0) NOT NULL,
+    "idFeature" numeric(5,0) NOT NULL
+);
+
+
+ALTER TABLE public."CharacterFeature" OWNER TO postgres;
+
+--
+-- TOC entry 163 (class 1259 OID 16522)
+-- Dependencies: 6
+-- Name: Feature; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "Feature" (
+    id numeric(5,0) NOT NULL,
+    des text
+);
+
+
+ALTER TABLE public."Feature" OWNER TO postgres;
+
+--
+-- TOC entry 164 (class 1259 OID 16528)
+-- Dependencies: 1874 6
+-- Name: User; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "User" (
+    nick text NOT NULL,
+    "idUser" integer NOT NULL,
+    mail character varying,
+    password character varying,
+    verified character(1) DEFAULT 0 NOT NULL,
+    "regDate" date
+);
+
+
+ALTER TABLE public."User" OWNER TO postgres;
+
+--
+-- TOC entry 165 (class 1259 OID 16534)
+-- Dependencies: 6
+-- Name: UserCharacter; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "UserCharacter" (
+    "idCharacter" numeric(5,0) NOT NULL,
+    version integer NOT NULL,
+    "idUser" integer NOT NULL
+);
+
+
+ALTER TABLE public."UserCharacter" OWNER TO postgres;
+
+--
+-- TOC entry 167 (class 1259 OID 16571)
+-- Dependencies: 164 6
+-- Name: User_idUser_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE "User_idUser_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."User_idUser_seq" OWNER TO postgres;
+
+--
+-- TOC entry 1905 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: User_idUser_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE "User_idUser_seq" OWNED BY "User"."idUser";
+
+
+--
+-- TOC entry 1906 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: User_idUser_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"User_idUser_seq"', 1, false);
+
+
+--
+-- TOC entry 168 (class 1259 OID 16591)
+-- Dependencies: 6
+-- Name: character; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE "character" (
+    id integer NOT NULL,
+    des character varying(255)
+);
+
+
+ALTER TABLE public."character" OWNER TO postgres;
+
+--
+-- TOC entry 166 (class 1259 OID 16569)
+-- Dependencies: 6
+-- Name: user_iduser_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE user_iduser_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_iduser_seq OWNER TO postgres;
+
+--
+-- TOC entry 1907 (class 0 OID 0)
+-- Dependencies: 166
+-- Name: user_iduser_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('user_iduser_seq', 17, true);
+
+
+--
+-- TOC entry 1873 (class 2604 OID 16573)
+-- Dependencies: 167 164
+-- Name: idUser; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "User" ALTER COLUMN "idUser" SET DEFAULT nextval('"User_idUser_seq"'::regclass);
+
+
+--
+-- TOC entry 1893 (class 0 OID 16513)
+-- Dependencies: 161
+-- Data for Name: Character; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "Character" (id, des) FROM stdin;
+1	Private PV1
+2	Private PV2
+3	Private First Class
+4	Specialist
+\.
+
+
+--
+-- TOC entry 1894 (class 0 OID 16519)
+-- Dependencies: 162
+-- Data for Name: CharacterFeature; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "CharacterFeature" ("idCharacter", "idFeature") FROM stdin;
+\.
+
+
+--
+-- TOC entry 1895 (class 0 OID 16522)
+-- Dependencies: 163
+-- Data for Name: Feature; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "Feature" (id, des) FROM stdin;
+1	Knife
+2	Sword
+3	Gun
+4	Rifle
+5	Tommy-gun
+6	Machine gun
+\.
+
+
+--
+-- TOC entry 1896 (class 0 OID 16528)
+-- Dependencies: 164
+-- Data for Name: User; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "User" (nick, "idUser", mail, password, verified, "regDate") FROM stdin;
+\.
+
+
+--
+-- TOC entry 1897 (class 0 OID 16534)
+-- Dependencies: 165
+-- Data for Name: UserCharacter; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "UserCharacter" ("idCharacter", version, "idUser") FROM stdin;
+\.
+
+
+--
+-- TOC entry 1898 (class 0 OID 16591)
+-- Dependencies: 168
+-- Data for Name: character; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY "character" (id, des) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1878 (class 2606 OID 16538)
+-- Dependencies: 162 162 162
+-- Name: CharacterFeature_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "CharacterFeature"
+    ADD CONSTRAINT "CharacterFeature_pkey" PRIMARY KEY ("idCharacter", "idFeature");
+
+
+--
+-- TOC entry 1876 (class 2606 OID 16540)
+-- Dependencies: 161 161
+-- Name: Character_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Character"
+    ADD CONSTRAINT "Character_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1880 (class 2606 OID 16542)
+-- Dependencies: 163 163
+-- Name: Feature_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "Feature"
+    ADD CONSTRAINT "Feature_pkey" PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1886 (class 2606 OID 16585)
+-- Dependencies: 165 165 165 165
+-- Name: UserCharacter_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "UserCharacter"
+    ADD CONSTRAINT "UserCharacter_pkey" PRIMARY KEY ("idUser", "idCharacter", version);
+
+
+--
+-- TOC entry 1882 (class 2606 OID 16546)
+-- Dependencies: 164 164
+-- Name: User_nick_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "User"
+    ADD CONSTRAINT "User_nick_key" UNIQUE (nick);
+
+
+--
+-- TOC entry 1884 (class 2606 OID 16583)
+-- Dependencies: 164 164
+-- Name: User_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "User"
+    ADD CONSTRAINT "User_pkey" PRIMARY KEY ("idUser");
+
+
+--
+-- TOC entry 1888 (class 2606 OID 16595)
+-- Dependencies: 168 168
+-- Name: character_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY "character"
+    ADD CONSTRAINT character_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1889 (class 2606 OID 16549)
+-- Dependencies: 162 161 1875
+-- Name: CharacterFeature_idCharacter_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CharacterFeature"
+    ADD CONSTRAINT "CharacterFeature_idCharacter_fkey" FOREIGN KEY ("idCharacter") REFERENCES "Character"(id);
+
+
+--
+-- TOC entry 1890 (class 2606 OID 16554)
+-- Dependencies: 162 1879 163
+-- Name: CharacterFeature_idFeature_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "CharacterFeature"
+    ADD CONSTRAINT "CharacterFeature_idFeature_fkey" FOREIGN KEY ("idFeature") REFERENCES "Feature"(id);
+
+
+--
+-- TOC entry 1891 (class 2606 OID 16559)
+-- Dependencies: 165 1875 161
+-- Name: UserCharacter_idCharacter_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "UserCharacter"
+    ADD CONSTRAINT "UserCharacter_idCharacter_fkey" FOREIGN KEY ("idCharacter") REFERENCES "Character"(id);
+
+
+--
+-- TOC entry 1892 (class 2606 OID 16586)
+-- Dependencies: 1883 164 165
+-- Name: UserCharacter_idUser_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "UserCharacter"
+    ADD CONSTRAINT "UserCharacter_idUser_fkey" FOREIGN KEY ("idUser") REFERENCES "User"("idUser");
+
+
+--
+-- TOC entry 1903 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2014-08-24 22:28:35
+
+--
+-- PostgreSQL database dump complete
+--
+
