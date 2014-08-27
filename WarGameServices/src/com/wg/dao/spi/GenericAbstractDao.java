@@ -15,19 +15,23 @@ public abstract class GenericAbstractDao<T> implements Serializable{
 	@Autowired
 	protected SessionFactory sessionFactory;
 
-	public abstract T findByKey(int key);
+	public abstract T findByKey(long key);
 	
 	public List<T> findByCriteria(T criteria) throws IllegalArgumentException, IllegalAccessException 
 	{
 		Criteria queryCriteria = sessionFactory.getCurrentSession().createCriteria(criteria.getClass());
 		if(criteria != null)
 		{
-			Field[] fields = criteria.getClass().getFields();
+			Field[] fields = criteria.getClass().getDeclaredFields();
 			for(Field field: fields)
 			{
-				if(field.get(criteria) != null)
+				if(field != null)
 				{
-					queryCriteria.add(Restrictions.eq(field.getName(), field.get(criteria)));
+					field.setAccessible(true);
+					if(field.get(criteria) != null)
+					{
+						queryCriteria.add(Restrictions.eq(field.getName(), field.get(criteria)));
+					}
 				}
 			}
 		}

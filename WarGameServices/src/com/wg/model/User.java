@@ -1,5 +1,7 @@
 package com.wg.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +32,16 @@ public class User extends BaseModel {
 	@Column(name="nick")
 	private String nick;
 	
+	@Column(name="verified")
+	private String verified;
+	
+	@Column(name="\"regDate\"")
+	private Date registerDate;
+		
+	public long getIdUser() {
+		return idUser;
+	}
+
 	public void setIdUser(long idUser) {
 		this.idUser = idUser;
 	}
@@ -56,6 +68,22 @@ public class User extends BaseModel {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getVerified() {
+		return verified;
+	}
+
+	public void setVerified(String verified) {
+		this.verified = verified;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
 	}
 	
 	

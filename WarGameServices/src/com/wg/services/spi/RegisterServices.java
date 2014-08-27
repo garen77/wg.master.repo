@@ -1,5 +1,7 @@
 package com.wg.services.spi;
 
+import java.lang.reflect.InvocationTargetException;
+import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -29,7 +31,7 @@ public class RegisterServices extends GenericService implements IRegisterService
 	private UserDao userDao;
 
 	@Override
-	public RegisterResult register(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException
+	public RegisterResult register(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
 	{		
 		RegisterResult result = new RegisterResult();
 		UserAssembler assembler = new UserAssembler();
@@ -38,6 +40,8 @@ public class RegisterServices extends GenericService implements IRegisterService
 		List<User> users = userDao.findByCriteria(user);
 		if(users == null ||users.size()==0)
 		{
+			user.setRegisterDate(new Date(new java.util.Date().getTime()));
+			user.setVerified("0");
 			try
 			{
 				userDao.save(user);

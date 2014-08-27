@@ -12,6 +12,7 @@
 
 	<context:annotation-config />
 	<context:component-scan base-package="com.wg.services.spi" />
+	<context:component-scan base-package="com.wg.rest.services.spi" />
 	<context:component-scan base-package="com.wg.dao.spi" />
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

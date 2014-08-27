@@ -12,7 +12,7 @@ public class CharacterDao extends GenericAbstractDao<com.wg.model.Character> {
 
 	
 	@Override
-	public com.wg.model.Character findByKey(int key) {
+	public com.wg.model.Character findByKey(long key) {
 		Query query = sessionFactory.getCurrentSession().createQuery("from Character where id = :id");
 		query.setParameter("id", key);
 		List ls = query.list() ;
