@@ -28,9 +28,13 @@ public abstract class GenericAbstractDao<T> implements Serializable{
 				if(field != null)
 				{
 					field.setAccessible(true);
-					if(field.get(criteria) != null)
+					Object obj = field.get(criteria);
+					if(obj != null)
 					{
-						queryCriteria.add(Restrictions.eq(field.getName(), field.get(criteria)));
+						if(!(obj instanceof Number) || obj instanceof Number && ((Number)obj).longValue()>0)
+						{
+							queryCriteria.add(Restrictions.eq(field.getName(), field.get(criteria)));							
+						}
 					}
 				}
 			}

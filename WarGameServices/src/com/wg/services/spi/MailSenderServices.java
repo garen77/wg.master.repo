@@ -35,7 +35,7 @@ public class MailSenderServices extends GenericService implements IMailSenderSer
 		if(criteria == null || criteria.getToAddr() == null || criteria.getToAddr().trim().equals(""))
 		{
 			
-			StringBuilder keyMess = new StringBuilder(IMailSenderServices.SERVICE_NAME).append(".").append(".err.")
+			StringBuilder keyMess = new StringBuilder(IMailSenderServices.SERVICE_NAME).append(".err.")
 					.append("invalidMailCriteria");
 			result.getMessages().add(rb.getString(keyMess.toString()));
 		}

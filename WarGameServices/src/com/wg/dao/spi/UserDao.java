@@ -1,15 +1,19 @@
 package com.wg.dao.spi;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
-import com.wg.model.Character;
 import com.wg.model.User;
 
 @Service
 public class UserDao extends GenericAbstractDao<User> {
+
+	
 
 	@Override
 	public User findByKey(long key) {

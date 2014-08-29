@@ -26,6 +26,7 @@
 				action="#{callerBean.register}" value="#{msg.register}" />
 		</ice:panelGroup>
 		<ice:panelGroup id="registerOkView" rendered="#{callerBean.viewState.view == 'registerOk'}">
+			<ice:outputLabel styleClass="bigText" value="#{msg.registrationOk}" />
 		</ice:panelGroup>
 		<ice:panelGroup id="registerFailureView" rendered="#{callerBean.viewState.view == 'registerFailure'}">
 			<ice:dataTable value="#{callerBean.errorMessages}" var="err">

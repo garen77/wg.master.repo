@@ -3,6 +3,7 @@ package com.wg.services.spi;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,42 @@ public class RegisterServices extends GenericService implements IRegisterService
 	@Override
 	public RegisterResult register(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
 	{		
+		ResourceBundle rb = getResourceBundle(GENERIC_RESOURCES_BUNDLE);
 		RegisterResult result = new RegisterResult();
 		UserAssembler assembler = new UserAssembler();
 		User user = new User();
-		assembler.fromDto(user, userDto);
-		List<User> users = userDao.findByCriteria(user);
-		if(users == null ||users.size()==0)
+		//mail control
+		if(userDto.getMail() != null)
 		{
+			user.setMail(userDto.getMail().trim());
+		}
+		List<User> users = userDao.findByCriteria(user);
+		if(users != null && users.size()>0)
+		{
+			StringBuilder keyMess = new StringBuilder(IRegisterServices.SERVICE_NAME).append(".err.")
+					.append("mailAlreadyRegistered");
+			result.getMessages().add(rb.getString(keyMess.toString()));
+		}
+
+		// username control
+		user.setMail(null);
+		if(userDto.getUserName() != null)
+		{
+			user.setNick(userDto.getUserName().trim());
+		}
+		users = userDao.findByCriteria(user);
+		if(users != null && users.size()>0)
+		{
+			StringBuilder keyMess = new StringBuilder(IRegisterServices.SERVICE_NAME).append(".err.")
+					.append("usernameAlreadyUsed");
+			result.getMessages().add(rb.getString(keyMess.toString()));
+		}
+
+		if(result.getMessages().isEmpty())
+		{
+			assembler.fromDto(user, userDto);
+			users = userDao.findByCriteria(user);
+
 			user.setRegisterDate(new Date(new java.util.Date().getTime()));
 			user.setVerified("0");
 			try
@@ -56,7 +86,7 @@ public class RegisterServices extends GenericService implements IRegisterService
 			mailSenderCriteria.setToAddr(userDto.getMail());
 			IMailSenderServices mailSenderServices = (IMailSenderServices)sf.getBean(IMailSenderServices.SERVICE_NAME);
 			MailSenderResult mailSenderResult = mailSenderServices.sendMail(mailSenderCriteria);
-			
+
 			if((result.getMessages() == null || result.getMessages().isEmpty())
 					&&
 					(mailSenderResult == null || mailSenderResult.getMessages() == null
@@ -64,10 +94,6 @@ public class RegisterServices extends GenericService implements IRegisterService
 			{
 				result.setRegisterOperation(true);
 			}
-		}
-		else if(users != null && users.size()==1)
-		{
-			result.getMessages().add("User already registered");
 		}
 		return result;
 	}
