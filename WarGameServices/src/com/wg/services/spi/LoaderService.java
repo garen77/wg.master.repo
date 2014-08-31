@@ -28,17 +28,11 @@ public class LoaderService extends GenericService implements ILoaderServices,ILo
 	private UserDao userDao;
 	
 	@Override
-	public List<? extends BaseModel> loadAllCharacter() {
-		// TODO Auto-generated method stub
-		return characterDao.findAll(new com.wg.model.Character());
-	}
-
-	@Override
-	public boolean login(UserDTO userDto) {
+	public boolean login(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException {
 		UserAssembler assembler = new UserAssembler();
 		User user = new User();
 		assembler.fromDto(user, userDto);
-		List<com.wg.model.User> lst = userDao.findAll(user);
+		List<com.wg.model.User> lst = userDao.findByCriteria(user);
 		return lst != null && lst.size() ==1;
 	}
 	

@@ -1,6 +1,5 @@
 package com.wg.services.spi;
 
-import java.net.InetAddress;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -14,7 +13,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.wg.criteria.MailSenderCriteria;
 import com.wg.result.MailSenderResult;

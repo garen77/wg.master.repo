@@ -57,7 +57,15 @@ public class LoginBean extends BaseBean {
 		UserDTO userDto = new UserDTO();
 		userDto.setUserName(userName);
 		userDto.setPassword(password);
-		loginOk = getLoaderService().login(userDto);
+		try {
+			loginOk = getLoaderService().login(userDto);
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(loginOk)
 		{
 			res = "successful";
