@@ -390,32 +390,107 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_2_11/jersey-common.jar">
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jackson-core-asl-1.9.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_2_11/jersey-container-servlet-core.jar">
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jackson-jaxrs-1.9.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_2_11/jersey-container-servlet.jar">
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jackson-mapper-asl-1.9.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_2_11/jersey-server.jar">
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jackson-xc-1.9.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/WarGameSharedLibraries/rest_2_0/javax.ws.rs-api-2.0.jar">
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-apache-client-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-client-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-core-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-guice-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-json-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-server-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-servlet-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-simple-server-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jersey-spring-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jettison-1.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/jsr311-api-1.1.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/oauth-client-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/oauth-server-1.18.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/oauth-signature-1.18.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/jaxb_2_2_7/jaxb-api-2.2.7.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/jersey_1_8/asm-3.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/hibernate3/antlr-2.7.6.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

@@ -4,6 +4,7 @@ import javax.xml.bind.JAXBException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wg.assembler.UserAssembler;
 import com.wg.dao.spi.UserDao;
@@ -12,6 +13,7 @@ import com.wg.model.User;
 import com.wg.rest.services.api.ILoadUserServices;
 
 @Service(value = ILoadUserServices.SERVICE_NAME)
+@Transactional
 public class LoadUserServices extends RestServices<UserDTO> implements ILoadUserServices{
 
 	@Autowired

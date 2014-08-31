@@ -78,6 +78,14 @@
     <servlet-class>com.icesoft.faces.component.inputfile.FileUploadServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.wg.rest.resources.registration.confirm</param-value>            
+        </init-param>        
+        <load-on-startup>1</load-on-startup>    </servlet>
   <servlet-mapping>
     <servlet-name>Persistent Faces Servlet</servlet-name>
     <url-pattern>*.iface</url-pattern>
@@ -95,6 +103,10 @@
     <servlet-name>uploadServlet</servlet-name>
     <url-pattern>/uploadHtml</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>  
   <listener>
     <listener-class>com.icesoft.faces.util.event.servlet.ContextEventRepeater</listener-class>
   </listener>

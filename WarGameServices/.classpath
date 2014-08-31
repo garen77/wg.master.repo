@@ -63,5 +63,6 @@
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/javamail_1_4_5/pop3.jar"/>
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/javamail_1_4_5/smtp.jar"/>
 	<classpathentry kind="lib" path="/WarGameSharedLibraries/jaxb_2_2_7/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="/WarGameSharedLibraries/hibernate3/antlr-2.7.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
