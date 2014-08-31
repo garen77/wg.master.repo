@@ -81,11 +81,12 @@
     <servlet>
         <servlet-name>Jersey Web Application</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.wg.rest.resources.registration.confirm</param-value>            
-        </init-param>        
-        <load-on-startup>1</load-on-startup>    </servlet>
+		<init-param>
+			<param-name>javax.ws.rs.core.Application</param-name>
+			<param-value>com.wg.rest.application.WarGameApplication</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>    
+	</servlet>
   <servlet-mapping>
     <servlet-name>Persistent Faces Servlet</servlet-name>
     <url-pattern>*.iface</url-pattern>

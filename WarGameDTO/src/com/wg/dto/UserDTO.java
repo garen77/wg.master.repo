@@ -10,6 +10,7 @@ public class UserDTO {
 	private String userName;
 	private String password;
 	private String mail;
+	private String verified;
 	
 	public long getIdUser() {
 		return idUser;
@@ -37,6 +38,12 @@ public class UserDTO {
 	@XmlElement(name="mail")
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	public String getVerified() {
+		return verified;
+	}
+	public void setVerified(String verified) {
+		this.verified = verified;
 	}
 	
 	

@@ -14,6 +14,7 @@ public class UserAssembler implements IAssembler<User, UserDTO> {
 			dto.setMail(model.getMail());
 			dto.setPassword(model.getPassword());
 			dto.setUserName(model.getNick());
+			dto.setVerified(model.getVerified());
 		}
 		
 	}
@@ -27,6 +28,7 @@ public class UserAssembler implements IAssembler<User, UserDTO> {
 			model.setMail(dto.getMail());
 			model.setNick(dto.getUserName());
 			model.setPassword(dto.getPassword());
+			model.setVerified(dto.getVerified());
 		}
 
 		

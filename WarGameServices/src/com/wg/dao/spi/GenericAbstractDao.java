@@ -56,4 +56,9 @@ public abstract class GenericAbstractDao<T> implements Serializable{
 		sessionFactory.getCurrentSession().save(model);
 	}
 
+	public void update(T model) throws HibernateException
+	{		
+		sessionFactory.getCurrentSession().update(model);
+	}
+
 }

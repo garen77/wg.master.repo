@@ -8,10 +8,11 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
 import com.wg.rest.resources.RestResource;
+import com.wg.rest.services.api.IConfirmRegistrationServices;
 import com.wg.rest.services.api.ILoadUserServices;
 
 @Path("/ConfirmRegistration")
-public class ConfirmRegistration extends RestResource{
+public class ConfirmRegistrationResource extends RestResource{
 
 	@Path("{idUser}")
 	@GET
@@ -21,4 +22,15 @@ public class ConfirmRegistration extends RestResource{
 		ILoadUserServices loaderServices = (ILoadUserServices)sf.getService(ILoadUserServices.SERVICE_NAME);
 		return loaderServices.xmlUser(idUser);
 	}
+
+	@Path("/confirmUser/{idUser}")
+	@GET
+	@Produces({MediaType.APPLICATION_XML})
+	public String confirmUser(@PathParam("idUser") long idUser) throws JAXBException
+	{
+		IConfirmRegistrationServices confirmServies = (IConfirmRegistrationServices)sf.getService(IConfirmRegistrationServices.SERVICE_NAME);
+		
+		return confirmServies.confirmUser(idUser);
+	}
+
 }
