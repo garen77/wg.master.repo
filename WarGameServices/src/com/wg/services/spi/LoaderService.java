@@ -15,11 +15,11 @@ import com.wg.model.User;
 import com.wg.services.api.ILoaderServices;
 import com.wg.services.api.ILoginServices;
 
-@Service(value=LoaderService.SERVICE_NAME)
+@Service(value=ILoaderServices.SERVICE_NAME)
 @Transactional
 public class LoaderService extends GenericService implements ILoaderServices,ILoginServices {
 
-	public static final String SERVICE_NAME = "loaderService";
+	
 
 	@Autowired
 	private CharacterDao characterDao;
@@ -34,6 +34,19 @@ public class LoaderService extends GenericService implements ILoaderServices,ILo
 		assembler.fromDto(user, userDto);
 		List<com.wg.model.User> lst = userDao.findByCriteria(user);
 		return lst != null && lst.size() ==1;
+	}
+
+	@Override
+	public UserDTO loadUser(long idUser) {
+				
+		User user = userDao.findByKey(idUser);
+		UserDTO userDto = new UserDTO();
+		if(user != null)
+		{
+			UserAssembler assembler = new UserAssembler();
+			assembler.toDto(user, userDto);
+		}
+		return userDto;
 	}
 	
 	

@@ -20,7 +20,7 @@ public class LoadUserServices extends RestServices<UserDTO> implements ILoadUser
 	private UserDao userDao;
 	
 	@Override
-	public String xmlUser(long idUser) throws JAXBException {
+	public String xmlStringUser(long idUser) throws JAXBException {
 		
 		User user = userDao.findByKey(idUser);
 		

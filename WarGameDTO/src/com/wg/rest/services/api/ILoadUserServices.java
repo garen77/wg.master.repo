@@ -7,5 +7,5 @@ public interface ILoadUserServices {
 
 	public static final String SERVICE_NAME = "loadUserServices";
 	
-	public String xmlUser(long idUser)  throws JAXBException;
+	public String xmlStringUser(long idUser)  throws JAXBException;
 }

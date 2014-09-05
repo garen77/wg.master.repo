@@ -45,6 +45,13 @@ public class UserDTO {
 	public void setVerified(String verified) {
 		this.verified = verified;
 	}
+	@Override
+	public String toString() {
+		StringBuilder res = new StringBuilder("");
+		res.append("userName : ").append(this.userName)
+			.append(" mail : ").append(this.mail);
+		return res.toString();
+	}
 	
 	
 }
