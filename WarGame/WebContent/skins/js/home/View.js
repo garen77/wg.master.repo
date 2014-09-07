@@ -1,12 +1,14 @@
 var UserView = Backbone.View.extend({
-    tagName: 'div',
-    className: '',
-    template: _.template( $( '#homeTemplate' ).html() ),
+	el : $('#pageForm\\:homeView'),
+	initialize: function() {
+		_.bindAll(this, 'render'); 
+		this.render();
+	},
 
-    render: function() {
-        //this.el is what we defined in tagName. use $el to get access to jQuery html() function
-        this.$el.html( this.template( this.model.attributes ) );
-
-        return this;
-    }
+	render: function(){
+		$(this.el).append("<ul> <li>hello world</li> </ul>");
+	}
 });
+
+
+
