@@ -6,9 +6,9 @@
 	xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
 	xmlns:wgm="http://www.wg.com/jsf">
-	<f:view>
-		<ice:outputHtml>
-			<wgm:header title="#{title}">
+	<f:view>		
+		<ice:outputHtml>						
+			<wgm:header title="#{title}">				
 				<c:if test="#{!wgm:isNullOrEmpty(customCSS)}">
 					<style type="text/css">
 						@IMPORT url("#{customCSS}");
@@ -18,7 +18,13 @@
 					@IMPORT url("/WarGame/skins/css/baseCss.css");
 				</style>
 			</wgm:header>
-			<ice:outputBody>
+			<ice:outputBody  onunload="">
+				<c:if test="#{!wgm:isNullOrEmpty(customTemplates)}">
+					<ui:include src="/pages/templates/#{customTemplates}/#{customTemplates}Templates.xhtml" />
+				</c:if>				
+				<c:if test="#{!wgm:isNullOrEmpty(customScripts)}">
+					<ui:include src="/pages/scripts/#{customScripts}/#{customScripts}Scripts.xhtml" />
+				</c:if>				
 				<div align="center">
 					<ice:panelGrid columns="1" >
 						<ui:insert name="header">

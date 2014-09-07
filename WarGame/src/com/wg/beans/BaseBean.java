@@ -52,6 +52,7 @@ public abstract class BaseBean implements Serializable{
 	public void init()
 	{
 		FacesContext fc = FacesContext.getCurrentInstance();
+		JavascriptContext.includeLib("/skins/js/scripts.js", fc);
 		JavascriptContext.includeLib("/skins/jQueryLib/jquery-1.7.1.js", fc);
 		initActivity();
 	}

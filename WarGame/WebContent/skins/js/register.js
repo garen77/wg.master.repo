@@ -1,48 +1,84 @@
-	$(function(){
+	$(document).ready(function(){
 
-	$("#pageForm\\:register").on("click",function(){
-
-        var email = $("#pageForm\\:mailText").val();
-        var userName = $("#pageForm\\:userNameText").val();
-        var password = $("#pageForm\\:passwordText").val();
+        var canSubmitMail = false;
+        var canSubmitUsername = false;
+        var canSubmitPassword = false;
         
-        if(!userName)
-    	{
-            $("#pageForm\\:userNameLabel").css({
-            	"font-weight" : "bold",
-                "color": "black"
-            });
-    	}
+        var emailLabel = $("#pageForm\\:mailLabel");
+        var userNameLabel = $("#pageForm\\:userNameLabel");
+        var passwordLabel = $("#pageForm\\:passwordLabel");
 
-        if(!password)
-    	{
-            $("#pageForm\\:passwordLabel").css({
-            	"font-weight" : "bold",
-                "color": "black"
-            });
-    	}
+		$("#pageForm\\:mailText").on("blur",function(){
+			if($(this).val() == null || $(this).val()==''
+				|| !isValidEmailAddress($(this).val()))
+			{
+				canSubmitMail = false;
+	            $(emailLabel).css({
+	            	"font-weight" : "bold",
+	                "color": "black"
+	            });
+			}
+			else
+			{
+				canSubmitMail = true;
+				$("#pageForm\\:registerButton").attr('disabled', false);
+	            $(emailLabel).css({
+	            	"font-weight" : "normal",
+	                "color": "black"
+	            });
+			}	
+		});
+		
+		$("#pageForm\\:userNameText").on("blur",function(){
+			if($(this).val() == null || $(this).val()=='')
+			{
+				canSubmitUsername = false;
+	            $(userNameLabel).css({
+	            	"font-weight" : "bold",
+	                "color": "black"
+	            });
+			}	
+			else
+			{
+				canSubmitUsername = true;
+				$("#pageForm\\:registerButton").attr('disabled', false);
+	            $(userNameLabel).css({
+	            	"font-weight" : "normal",
+	                "color": "black"
+	            });
+			}	
+		});
+		
+		$("#pageForm\\:passwordText").on("blur",function(){
+			if($(this).val() == null || $(this).val()=='')
+			{
+				canSubmitPassword = false;
+	            $(passwordLabel).css({
+	            	"font-weight" : "bold",
+	                "color": "black"
+	            });
+			}	
+			else
+			{
+				canSubmitPassword = true;
+				$("#pageForm\\:registerButton").attr('disabled', false);
+	            $(passwordLabel).css({
+	            	"font-weight" : "normal",
+	                "color": "black"
+	            });
+			}	
+		});
 
-        if(email != 0)
-        {
-            if(isValidEmailAddress(email))
-            {
-                $("#pageForm\\:mailLabel").css({
-                    "color": "green"
-                });
-            } else {
-            	
-                $("#pageForm\\:mailLabel").css({
-                	"color": "red"
-                });
-            }
-        } else {
-            $("#pageForm\\:mailLabel").css({
-            	"font-weight" : "bold",
-                "color": "black"
-            });         
-        }
-
-    });
+		$("#pageForm\\:registerButton").on("mouseover",function(){
+			if(canSubmitMail && canSubmitUsername && canSubmitPassword)
+			{
+				$("#pageForm\\:registerButton").attr('disabled', false);
+			}
+			else
+			{
+				$("#pageForm\\:registerButton").attr('disabled', true);
+			}	
+		});
 
   });
 	

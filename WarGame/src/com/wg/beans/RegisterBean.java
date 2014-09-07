@@ -1,5 +1,7 @@
 package com.wg.beans;
 
+import javax.faces.application.ViewHandler;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -35,8 +37,8 @@ public class RegisterBean extends BaseBean {
 	@Override
 	public void initActivity() {
 		
-		FacesContext fc = FacesContext.getCurrentInstance();
-		JavascriptContext.includeLib("/skins/js/register.js", fc);
+		/*FacesContext fc = FacesContext.getCurrentInstance();
+		JavascriptContext.includeLib("/skins/js/register.js", fc);*/
 
 		viewState = new RegisterState();
 

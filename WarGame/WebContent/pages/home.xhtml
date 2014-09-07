@@ -1,15 +1,17 @@
-<wgm:view xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jstl/core"
-	xmlns:ice="http://www.icesoft.com/icefaces/component"
-	xmlns:wgm="http://www.wg.com/jsf"
-	backingBean="#{warGameLoaderBean}">
-	
-	<div align="center">
-		<h1>Wellcome War Game</h1>
-	</div>
-	
-	
-</wgm:view>	
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:c="http://java.sun.com/jstl/core"
+				xmlns:ice="http://www.icesoft.com/icefaces/component"
+				xmlns:wgm="http://www.wg.com/jsf"
+				backingBean="#{warGameLoaderBean}">
+
+	<c:set var="callerBean" value="#{homeBean}" />
+	<c:set var="customTemplates" value="home" />
+	<c:set var="customScripts" value="home" />
+	<wgm:decorate template="/includes/home/home.xhtml" />
+
+</ui:composition>
+
+

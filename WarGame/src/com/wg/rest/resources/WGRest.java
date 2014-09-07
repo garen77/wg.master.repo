@@ -13,7 +13,7 @@ import com.wg.services.api.ILoaderServices;
 @Path("/WGRest")
 public class WGRest extends RestResource {
 
-	@Path("{idUser}")
+	@Path("/users/{idUser}")
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public UserDTO viewUser(@PathParam("idUser") long idUser) throws JAXBException
