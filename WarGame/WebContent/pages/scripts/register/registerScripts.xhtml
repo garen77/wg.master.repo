@@ -7,6 +7,9 @@
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
 	xmlns:wgm="http://www.wg.com/jsf">
 	<f:view>	
-		<script src="/WarGame/skins/js/register.js" />	
+		<c:if test="#{wgm:ifPropertyTrue(backboneLibs)}">
+			<ui:include src="/pages/scripts/common/backbone/backboneLibs.xhtml" />
+		</c:if>				
+		<script src="/WarGame/skins/js/register/register.js" />	
 	</f:view>
 </ui:composition>	

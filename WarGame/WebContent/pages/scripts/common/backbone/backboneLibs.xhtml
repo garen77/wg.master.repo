@@ -7,10 +7,10 @@
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
 	xmlns:wgm="http://www.wg.com/jsf">
 	<f:view>	
-		<c:if test="#{wgm:ifPropertyTrue(backboneLibs)}">
-			<ui:include src="/pages/scripts/common/backbone/backboneLibs.xhtml" />
-		</c:if>				
-		<script src="/WarGame/skins/js/home/Model.js" />
-		<script src="/WarGame/skins/js/home/home.js" />
+
+		<script src="/WarGame/skins/backbone/json2.js" />
+		<script src="/WarGame/skins/backbone/Underscore.js" />
+		<script src="/WarGame/skins/backbone/UnderscoreForJsf.js" />
+		<script src="/WarGame/skins/backbone/Backbone.js" />
 	</f:view>
 </ui:composition>	

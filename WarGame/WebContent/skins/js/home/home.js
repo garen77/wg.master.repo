@@ -15,4 +15,15 @@ $(document).ready(function(){
         });
 	});
 	
+
+	
+});
+
+var user = new UserModel();
+user.set({idUser: 21});
+user.fetch({
+		success : function(userResp)
+		{
+			printData(userResp.get("userName"), userResp.get("mail"));
+		}
 });

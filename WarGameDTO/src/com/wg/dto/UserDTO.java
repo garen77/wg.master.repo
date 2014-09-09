@@ -22,7 +22,7 @@ public class UserDTO {
 	public String getUserName() {
 		return userName;
 	}
-	@XmlElement(name="username")
+	@XmlElement(name="userName")
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
@@ -48,7 +48,7 @@ public class UserDTO {
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder("");
-		res.append("userName : ").append(this.userName)
+		res.append(" userName : ").append(this.userName)
 			.append(" mail : ").append(this.mail);
 		return res.toString();
 	}

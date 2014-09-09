@@ -27,4 +27,27 @@ public class PageFunctions {
 			return value1+value2;
 		}
 	}
+	
+	static public boolean ifPropertyTrue(String value)
+	{
+		Boolean res = null;
+	
+		try
+		{
+			res  = new Boolean(Boolean.parseBoolean(value));
+		}
+		catch(IllegalArgumentException iae)
+		{
+			res = new Boolean(false);
+		}
+		if(res != null)
+		{
+			return res.booleanValue();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 }

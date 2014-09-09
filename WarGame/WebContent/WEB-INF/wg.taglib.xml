@@ -34,5 +34,9 @@
 		<function-class>com.wg.tags.functions.PageFunctions</function-class>
 		<function-signature>String concat(java.lang.String, java.lang.String)</function-signature>
 	</function>
-
+	<function>
+		<function-name>ifPropertyTrue</function-name>
+		<function-class>com.wg.tags.functions.PageFunctions</function-class>
+		<function-signature>boolean ifPropertyTrue(java.lang.String)</function-signature>
+	</function>
 </facelet-taglib>
