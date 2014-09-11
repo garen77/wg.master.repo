@@ -10,15 +10,18 @@
 	<div align="center">
 		<ice:panelGroup id="registerView" rendered="#{callerBean.viewState.view == 'register'}">
 			<ice:outputText value="#{msg.registration}"/>
-			<ice:panelGrid cellSpacing="0" columns="2" columnClasses="col1, col2">
+			<ice:panelGrid cellSpacing="0" columns="3" columnClasses="col1, col2, col3">
 				<ice:outputText id="userNameLabel" value="#{msg.userName}"></ice:outputText>
 				<ice:inputText id="userNameText" value="#{callerBean.userName}"></ice:inputText>
+				<ice:outputText id="userNameMess" value=""></ice:outputText>
 				
 				<ice:outputText id="passwordLabel" value="#{msg.password}"></ice:outputText>
 				<ice:inputText id="passwordText" value="#{callerBean.password}"></ice:inputText>
+				<ice:outputText id="passwordMess" value=""></ice:outputText>
 	
 				<ice:outputText id="mailLabel" forceId="true" value="#{msg.mail}"></ice:outputText>
 				<ice:inputText id="mailText" value="#{callerBean.mail}"></ice:inputText>
+				<ice:outputText id="mailMess" value=""></ice:outputText>
 				
 			</ice:panelGrid>
 			<h:commandButton  id="registerButton" type="submit" 

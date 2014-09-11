@@ -8,6 +8,10 @@
         var userNameLabel = $("#pageForm\\:userNameLabel");
         var passwordLabel = $("#pageForm\\:passwordLabel");
 
+        var emailMess= $("#pageForm\\:mailMess");
+        var userNameMess = $("#pageForm\\:userNameMess");
+        var passwordMess = $("#pageForm\\:passwordMess");
+
 		$("#pageForm\\:mailText").on("blur",function(){
 			if($(this).val() == null || $(this).val()==''
 				|| !isValidEmailAddress($(this).val()))
@@ -20,12 +24,29 @@
 			}
 			else
 			{
-				canSubmitMail = true;
-				$("#pageForm\\:registerButton").attr('disabled', false);
-	            $(emailLabel).css({
-	            	"font-weight" : "normal",
-	                "color": "black"
-	            });
+				$.ajax({
+					url : baseUrlPath+'/controlMail?mail='+$(this).val()
+				}).then(function (data){
+					if(data.found)
+					{
+						canSubmitMail = false;
+						$(emailLabel).css({
+			            	"font-weight" : "normal",
+			                "color": "red"
+			            });
+			            $(emailMess).text('mail already used');
+					}
+					else
+					{
+						canSubmitMail = true;
+						$("#pageForm\\:registerButton").attr('disabled', false);
+			            $(emailLabel).css({
+			            	"font-weight" : "normal",
+			                "color": "black"
+			            });			
+			            $(emailMess).text('');
+					}	
+				});
 			}	
 		});
 		
@@ -40,12 +61,30 @@
 			}	
 			else
 			{
-				canSubmitUsername = true;
-				$("#pageForm\\:registerButton").attr('disabled', false);
-	            $(userNameLabel).css({
-	            	"font-weight" : "normal",
-	                "color": "black"
-	            });
+				$.ajax({
+					url : baseUrlPath+'/controlUserName?userName='+$(this).val()
+				}).then(function (data){
+					if(data.found)
+					{
+						canSubmitUsername = false;
+						$(userNameLabel).css({
+			            	"font-weight" : "normal",
+			                "color": "red"
+			            });
+			            $(userNameMess).text('user name already used');
+					}
+					else
+					{
+						canSubmitUsername = true;
+						$("#pageForm\\:registerButton").attr('disabled', false);
+			            $(userNameLabel).css({
+			            	"font-weight" : "normal",
+			                "color": "black"
+			            });			
+			            $(userNameMess).text('');
+					}	
+				});				
+				
 			}	
 		});
 		
