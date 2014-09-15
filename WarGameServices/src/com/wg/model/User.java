@@ -1,12 +1,19 @@
 package com.wg.model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,6 +30,8 @@ public class User extends BaseModel {
 	@Column(name = "\"idUser\"", updatable=false)
 	private long idUser;
 
+	private Set<Character> characters = new HashSet<Character>(0);
+	
 	@Column(name="mail")
 	private String mail;
 
@@ -84,6 +93,19 @@ public class User extends BaseModel {
 
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
+	}
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "\"UserCharacter\"", joinColumns = { 
+			@JoinColumn(name = "\"idUser\"", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "\"idCharacter\"", 
+					nullable = false, updatable = false) })
+	public Set<Character> getCharacters() {
+		return characters;
+	}
+
+	public void setCharacters(Set<Character> characters) {
+		this.characters = characters;
 	}
 	
 	

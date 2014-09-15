@@ -2,8 +2,10 @@ package com.wg.services.spi;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.wg.assembler.UserAssembler;
 import com.wg.criteria.MailSenderCriteria;
+import com.wg.dao.spi.CharacterDao;
+import com.wg.dao.spi.FeatureDao;
 import com.wg.dao.spi.UserDao;
 import com.wg.dto.UserDTO;
+import com.wg.model.Character;
+import com.wg.model.Feature;
 import com.wg.model.User;
 import com.wg.result.MailSenderResult;
 import com.wg.result.RegisterResult;
@@ -31,6 +37,12 @@ public class RegisterServices extends GenericService implements IRegisterService
 	@Autowired
 	private UserDao userDao;
 
+	@Autowired
+	private CharacterDao characterDao;
+	
+	@Autowired
+	private FeatureDao featureDao;
+	
 	@Override
 	public RegisterResult register(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
 	{		
@@ -72,6 +84,15 @@ public class RegisterServices extends GenericService implements IRegisterService
 
 			user.setRegisterDate(new Date(new java.util.Date().getTime()));
 			user.setVerified("0");
+			Set<Character> chars = new HashSet<Character>(0);
+			Set<Feature> feats = new HashSet<Feature>(0);
+			Feature baseFeature = featureDao.findByKey(10);
+			Character baseCharacter = characterDao.findByKey(10);
+			chars.add(baseCharacter);
+			feats.add(baseFeature);
+			baseCharacter.setFeatures(feats);
+			baseFeature.setCharacters(chars);
+			user.setCharacters(chars);
 			try
 			{
 				userDao.save(user);
