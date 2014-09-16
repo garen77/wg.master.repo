@@ -19,19 +19,24 @@ public class Feature extends BaseModel {
 
 	@Id
 	@Column(name="id")
-	private int id;
+	private long id;
 	
 	@Column(name="des")
 	private String des;
 
 	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "\"CharacterFeature\"", joinColumns = { 
+			@JoinColumn(name = "\"idFeature\"", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "\"idCharacter\"", 
+					nullable = false, updatable = false) })
 	private Set<Character> characters = new HashSet<Character>();
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -43,11 +48,6 @@ public class Feature extends BaseModel {
 		this.des = des;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "\"CharacterFeature\"", joinColumns = { 
-			@JoinColumn(name = "\"idFeature\"", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "\"idCharacter\"", 
-					nullable = false, updatable = false) })
 	public Set<Character> getCharacters() {
 		return characters;
 	}

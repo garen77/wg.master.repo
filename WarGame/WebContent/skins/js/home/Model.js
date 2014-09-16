@@ -5,8 +5,10 @@
 	   idAttribute: "idUser", //PK mapping
 	   defaults : {
 		   idUser : null,
+		   mail : "",
 		   userName : "",
-		   mail : ""
+		   idCharacter : "",
+		   idFeatures : [""]
 	   },
 	   urlRoot: baseUrlPath+ '/users' //REST URI mapping
 	});

@@ -28,8 +28,13 @@ public class User extends BaseModel {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,
 	generator="User_idUser_seq")
 	@Column(name = "\"idUser\"", updatable=false)
-	private long idUser;
+	private int idUser;
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "\"UserCharacter\"", joinColumns = { 
+			@JoinColumn(name = "\"idUser\"", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "\"idCharacter\"", 
+					nullable = false, updatable = false) })
 	private Set<Character> characters = new HashSet<Character>(0);
 	
 	@Column(name="mail")
@@ -47,11 +52,11 @@ public class User extends BaseModel {
 	@Column(name="\"regDate\"")
 	private Date registerDate;
 		
-	public long getIdUser() {
+	public int getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(long idUser) {
+	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
 
@@ -95,11 +100,6 @@ public class User extends BaseModel {
 		this.registerDate = registerDate;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "\"UserCharacter\"", joinColumns = { 
-			@JoinColumn(name = "\"idUser\"", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "\"idCharacter\"", 
-					nullable = false, updatable = false) })
 	public Set<Character> getCharacters() {
 		return characters;
 	}

@@ -16,18 +16,19 @@ public class Character extends BaseModel{
 
 	@Id
 	@Column(name="id")
-	private int id;
+	private long id;
 	
 	@Column(name="des")
 	private String des;
 
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "characters")
 	private Set<Feature> features = new HashSet<Feature>(0);
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -39,7 +40,6 @@ public class Character extends BaseModel{
 		this.des = des;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "\"CharacterFeature\"")
 	public Set<Feature> getFeatures() {
 		return features;
 	}

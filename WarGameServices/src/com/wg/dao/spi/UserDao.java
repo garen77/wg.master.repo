@@ -18,7 +18,7 @@ public class UserDao extends GenericAbstractDao<User> {
 	@Override
 	public User findByKey(long key) {
 		Query query = sessionFactory.getCurrentSession().createQuery("from User where idUser = :id");
-		query.setParameter("id", key);
+		query.setParameter("id", (int)key);
 		List ls = query.list() ;
 		if(ls != null && ls.size()>0)
 			return (User) ls.get(0);

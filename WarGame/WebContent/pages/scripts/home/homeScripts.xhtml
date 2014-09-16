@@ -7,10 +7,16 @@
 	xmlns:ice="http://www.icesoft.com/icefaces/component"
 	xmlns:wgm="http://www.wg.com/jsf">
 	<f:view>	
+		<script type="text/template" id="userTemplate">
+		    <label>User:</label>
+    		<input type="text" name="userName" value="{{ userName }}"/>
+			<input type="text" name="mail" value="{{ mail }}"/>
+		</script>
 		<c:if test="#{wgm:ifPropertyTrue(backboneLibs)}">
 			<ui:include src="/pages/scripts/common/backbone/backboneLibs.xhtml" />
 		</c:if>				
 		<script src="/WarGame/skins/js/home/Model.js" />
+		<script src="/WarGame/skins/js/home/View.js" />
 		<script src="/WarGame/skins/js/home/home.js" />
 	</f:view>
 </ui:composition>	

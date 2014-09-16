@@ -6,17 +6,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="user")
 public class UserDTO {
 
-	private long idUser;
+	private int idUser;
 	private String userName;
 	private String password;
 	private String mail;
 	private String verified;
 	
-	public long getIdUser() {
+	public int getIdUser() {
 		return idUser;
 	}
 	@XmlElement(name="id")
-	public void setIdUser(long idUser) {
+	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
 	public String getUserName() {
@@ -45,6 +45,7 @@ public class UserDTO {
 	public void setVerified(String verified) {
 		this.verified = verified;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder("");

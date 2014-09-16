@@ -3,6 +3,7 @@ package com.wg.dao.spi;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -31,7 +32,7 @@ public abstract class GenericAbstractDao<T> implements Serializable{
 					Object obj = field.get(criteria);
 					if(obj != null)
 					{
-						if(!(obj instanceof Number) || obj instanceof Number && ((Number)obj).longValue()>0)
+						if((!(obj instanceof Number) || obj instanceof Number && ((Number)obj).longValue()>0) && ! (obj instanceof Set))
 						{
 							queryCriteria.add(Restrictions.eq(field.getName(), field.get(criteria)));							
 						}

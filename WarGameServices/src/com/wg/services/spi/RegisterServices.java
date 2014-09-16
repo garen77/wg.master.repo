@@ -84,15 +84,8 @@ public class RegisterServices extends GenericService implements IRegisterService
 
 			user.setRegisterDate(new Date(new java.util.Date().getTime()));
 			user.setVerified("0");
-			Set<Character> chars = new HashSet<Character>(0);
-			Set<Feature> feats = new HashSet<Feature>(0);
-			Feature baseFeature = featureDao.findByKey(10);
 			Character baseCharacter = characterDao.findByKey(10);
-			chars.add(baseCharacter);
-			feats.add(baseFeature);
-			baseCharacter.setFeatures(feats);
-			baseFeature.setCharacters(chars);
-			user.setCharacters(chars);
+			user.getCharacters().add(baseCharacter);
 			try
 			{
 				userDao.save(user);

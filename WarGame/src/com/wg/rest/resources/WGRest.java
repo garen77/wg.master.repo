@@ -10,7 +10,9 @@ import javax.xml.bind.JAXBException;
 
 import com.wg.dto.SimpleResult;
 import com.wg.dto.UserDTO;
+import com.wg.dto.UserFrontEnd;
 import com.wg.rest.services.api.ILoadUserServices;
+import com.wg.services.api.IHomeServices;
 import com.wg.services.api.ILoaderServices;
 
 @Path("/WGRest")
@@ -19,10 +21,14 @@ public class WGRest extends RestResource {
 	@Path("/users/{idUser}")
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public UserDTO viewUser(@PathParam("idUser") long idUser) throws JAXBException
+	public UserFrontEnd viewUser(@PathParam("idUser") int idUser) throws JAXBException
 	{
 		ILoaderServices services = (ILoaderServices)sf.getService(ILoaderServices.SERVICE_NAME);
-		return services.loadUser(idUser);
+		IHomeServices homeServices = (IHomeServices)sf.getService(IHomeServices.SERVICE_NAME);
+//		return services.loadUser(idUser);
+		UserDTO dto = new UserDTO();
+		dto.setIdUser(idUser);
+		return homeServices.loadUser(dto);
 	}
 
 	@Path("/controlMail")
