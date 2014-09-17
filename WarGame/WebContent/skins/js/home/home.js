@@ -14,10 +14,7 @@ $(document).ready(function(){
             "color": "red"
         });
 	});
-	
-});
 
-$(window).load(function(){
 	var user = new UserModel();
 	user.set({idUser: 31});
 	user.fetch({
@@ -25,12 +22,12 @@ $(window).load(function(){
 			{
 				loadUserView(userResp);
 			}
-	});	
+	});			
+
 });
 
 function loadUserView(userMod)
 {
 	var userView = new UserView({model: userMod});
 	userView.render();
-	$("#container").load();
 }
