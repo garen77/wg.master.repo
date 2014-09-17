@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="user")
-public class UserDTO {
+public class UserDTO extends SimpleResult{
 
 	private int idUser;
 	private String userName;

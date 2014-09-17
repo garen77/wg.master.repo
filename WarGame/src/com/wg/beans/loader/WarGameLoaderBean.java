@@ -19,7 +19,7 @@ public class WarGameLoaderBean extends BaseBean{
 	
 	
 	
-	
+	private int idCurrentUser;
 	
 	@Override
 	public void initActivity() {
@@ -41,6 +41,18 @@ public class WarGameLoaderBean extends BaseBean{
 	public String start()
 	{
 		return "";
+	}
+
+
+
+	public int getIdCurrentUser() {
+		return idCurrentUser;
+	}
+
+
+
+	public void setIdCurrentUser(int idCurrentUser) {
+		this.idCurrentUser = idCurrentUser;
 	}
 
 

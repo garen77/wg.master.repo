@@ -4,6 +4,6 @@ import com.wg.dto.UserDTO;
 
 public interface ILoginServices {
 
-	public boolean login(UserDTO userDto)  throws IllegalArgumentException, IllegalAccessException;
+	public UserDTO login(UserDTO userDto)  throws IllegalArgumentException, IllegalAccessException;
 	
 }

@@ -16,13 +16,17 @@ $(document).ready(function(){
 	});
 
 	var user = new UserModel();
-	user.set({idUser: 31});
-	user.fetch({
-			success : function(userResp)
-			{
-				loadUserView(userResp);
-			}
-	});			
+	var idSessionUser = $('#pageForm\\:idCurrentUser').val();
+	if(idSessionUser)
+	{
+		user.set({idUser: idSessionUser});
+		user.fetch({
+				success : function(userResp)
+				{
+					loadUserView(userResp);
+				}
+		});					
+	}	
 
 });
 

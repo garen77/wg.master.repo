@@ -28,12 +28,17 @@ public class LoaderService extends GenericService implements ILoaderServices,ILo
 	private UserDao userDao;
 	
 	@Override
-	public boolean login(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException {
+	public UserDTO login(UserDTO userDto) throws IllegalArgumentException, IllegalAccessException {
 		UserAssembler assembler = new UserAssembler();
 		User user = new User();
 		assembler.fromDto(user, userDto);
 		List<com.wg.model.User> lst = userDao.findByCriteria(user);
-		return lst != null && lst.size() ==1;
+		if(lst != null && lst.size() ==1)
+		{	
+			userDto.setFound(true);
+			userDto.setIdUser(lst.get(0).getIdUser());
+		}
+		return userDto;
 	}
 
 	@Override

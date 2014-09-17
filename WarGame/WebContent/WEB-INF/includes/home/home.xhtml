@@ -8,6 +8,7 @@
 	backingBean="#{warGameLoaderBean}">
 	
 	<div align="center">
+		<ice:inputHidden id="idCurrentUser" value="#{warGameLoaderBean.idCurrentUser}" />
 		<ice:panelGroup id="homeView" rendered="#{callerBean.viewState.view == 'homeStart'}">
 			<h1 id="homeTitle">Welcome War Game</h1>
 			<div id="container">Loading...</div>

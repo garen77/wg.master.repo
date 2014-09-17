@@ -58,7 +58,12 @@ public class LoginBean extends BaseBean {
 		userDto.setUserName(userName);
 		userDto.setPassword(password);
 		try {
-			loginOk = getLoaderService().login(userDto);
+			UserDTO result = getLoaderService().login(userDto);
+			if(result != null && result.isFound())
+			{
+				getWarGameLoaderBean().setIdCurrentUser(result.getIdUser());
+				loginOk = true;				
+			}
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
