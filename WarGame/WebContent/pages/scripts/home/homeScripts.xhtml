@@ -8,9 +8,29 @@
 	xmlns:wgm="http://www.wg.com/jsf">
 	<f:view>	
 		<script type="text/template" id="userTemplate">
-		    <label>User:</label>
-    		<input type="text" name="userName" value="{{ userName }}"/>
-			<input type="text" name="mail" value="{{ mail }}"/>
+		    <div>
+				<table id="tableUser">
+					<tr>
+						<td><input type="text" name="userName" value="{{ idCharacter }}"/></td>
+						<td>
+							<table id="tableUserFeatures">
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="userName" value="{{ userName }}"/></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</script>
+		<script type="text/template" id="userFeaturesTemplate">
+ 			{{ for(var i = 0; i < featuresList.length; i++){ }}
+	        {{ var feature = featuresList[i]; }}
+		      <tr>
+		        <td>{{ feature }}</td>
+		      </tr>
+		    {{ } }}
 		</script>
 		<c:if test="#{wgm:ifPropertyTrue(backboneLibs)}">
 			<ui:include src="/pages/scripts/common/backbone/backboneLibs.xhtml" />

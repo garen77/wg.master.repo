@@ -42,7 +42,7 @@
 						$("#pageForm\\:registerButton").attr('disabled', false);
 			            $(emailLabel).css({
 			            	"font-weight" : "normal",
-			                "color": "black"
+			                "color": "green"
 			            });			
 			            $(emailMess).text('');
 					}	
@@ -79,7 +79,7 @@
 						$("#pageForm\\:registerButton").attr('disabled', false);
 			            $(userNameLabel).css({
 			            	"font-weight" : "normal",
-			                "color": "black"
+			                "color": "green"
 			            });			
 			            $(userNameMess).text('');
 					}	
