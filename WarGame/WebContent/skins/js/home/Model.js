@@ -8,7 +8,9 @@
 		   mail : "",
 		   userName : "",
 		   idCharacter : "",
-		   idFeatures : [""]
+		   idFeatures : [""],
+		   characterImg : "",
+		   featuresImg : [""]
 	   },
 	   urlRoot: baseUrlPath+ '/users' //REST URI mapping
 	});

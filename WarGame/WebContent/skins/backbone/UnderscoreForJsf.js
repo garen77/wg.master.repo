@@ -1,5 +1,5 @@
 _.templateSettings = {
-interpolate: /\{\{(.+?)\}\}/gim,
+interpolate: /\{\{\=(.+?)\}\}/gim,
 evaluate: /\{\{(.+?)\}\}/gim,
 escape: /\{\{\-(.+?)\}\}/gim
 };
