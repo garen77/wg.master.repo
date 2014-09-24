@@ -55,6 +55,16 @@
     	</navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+    	<display-name>playArea.xhtml</display-name>
+    	<from-view-id>/pages/playArea.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-outcome>back</from-outcome>
+    		<to-view-id>/faces/pages/home.xhtml</to-view-id>
+    		<redirect/>
+    	</navigation-case>
+    </navigation-rule>
+
 	<application>
 		<view-handler>
 			com.icesoft.faces.facelets.D2DFaceletViewHandler
