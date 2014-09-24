@@ -24,4 +24,8 @@ public class HomeBean extends BaseBean {
 		viewState = new StartState();
 	}
 
+	public String play()
+	{
+		return "playArea";
+	}
 }
