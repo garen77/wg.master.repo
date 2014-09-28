@@ -7,3 +7,7 @@ var character = 'character_';
 var feature = 'feature_';
 
 var pngExt = '.png';
+
+function fuzzy(range, base){
+	return (base||0) + (Math.random()-0.5)*range*2;
+}

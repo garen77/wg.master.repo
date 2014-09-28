@@ -11,7 +11,7 @@
 		<ice:inputHidden id="idCurrentUser" value="#{warGameLoaderBean.idCurrentUser}" />
 		<ice:panelGroup id="playAreaView" rendered="#{callerBean.viewState.view == 'playAreaStart'}">
 			<h1 id="playAreaTitle">Play Area</h1>
-			<canvas id="containerPlayArea">Loading...</canvas>
+			<canvas id="containerPlayArea" width="400" height="300">Loading...</canvas>
 			<ice:panelGrid cellSpacing="0" columns="2" columnClasses="col1, col2">
 				<ice:commandButton id="homeBack" type="submit" action="#{callerBean.back}" value="Back" />
 			</ice:panelGrid>
